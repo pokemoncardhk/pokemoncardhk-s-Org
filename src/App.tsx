@@ -16,6 +16,7 @@ import { SearchPage } from './SearchPage';
 import { FavoritesPage } from './FavoritesPage';
 import { PortfolioPage } from './PortfolioPage';
 import { AdminDashboard } from './AdminDashboard';
+import MarketPrices from './MarketPrices';
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/profile/:userId" element={<Profile />} />
               <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/market" element={<MarketPrices />} />
             </Routes>
           </main>
         </div>

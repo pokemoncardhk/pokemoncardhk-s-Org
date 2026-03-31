@@ -70,6 +70,10 @@ export const Navbar: React.FC = () => {
                 <BookOpen className="w-5 h-5" />
                 <span>資訊</span>
               </Link>
+              <Link to="/market" className={`transition-colors flex items-center gap-1 text-sm font-medium ${isActive('/market') ? 'text-blue-600 dark:text-blue-400' : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'}`}>
+                <TrendingUp className="w-5 h-5" />
+                <span>行情</span>
+              </Link>
               <Link to="/search" className={`transition-colors flex items-center gap-1 text-sm font-medium ${isActive('/search') ? 'text-blue-600 dark:text-blue-400' : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'}`}>
                 <Sparkles className="w-5 h-5" />
                 <span>AI 助手</span>
