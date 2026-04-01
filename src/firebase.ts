@@ -1,11 +1,8 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, OAuthProvider } from 'firebase/auth';
-import { getFirestore, enableIndexedDbPersistence } from 'firebase/firestore';
+import { getFirestore, initializeFirestore } from 'firebase/firestore';
 
 // Hardcoded Firebase config - no external JSON needed
-alert("firebase.ts 開始執行...");
-console.log("firebase.ts loading...");
-
 const firebaseConfig = {
   projectId: "gen-lang-client-0326385388",
   appId: "1:122336191579:web:2de07c0acb51b8b24c8b7e",
@@ -17,21 +14,15 @@ const firebaseConfig = {
   measurementId: ""
 };
 
-alert("firebase.ts config loaded! API Key: " + firebaseConfig.apiKey);
-console.log("✅ firebaseConfig defined:", firebaseConfig);
-
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
 
-// Enable Firestore persistence
-enableIndexedDbPersistence(db).catch((err) => {
-  if (err.code === 'failed-precondition') {
-    console.warn('Persistence failed: Multiple tabs open');
-  } else if (err.code === 'unimplemented') {
-    console.warn('Persistence failed: Browser does not support it');
-  }
+// Initialize Firestore with non-default database ID
+const db = initializeFirestore(app, {
+  databaseId: firebaseConfig.firestoreDatabaseId
 });
+
+export const auth = getAuth(app);
+export { db };
 
 export const googleProvider = new GoogleAuthProvider();
 export const appleProvider = new OAuthProvider('apple.com');

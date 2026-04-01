@@ -1,13 +1,4 @@
-alert("App.tsx 開始執行...");
-
 import React from 'react';
-
-// Global error handler for debugging
-window.onerror = function(msg, url, line) {
-  alert("App.tsx Error: " + msg + " Line: " + line);
-  console.error("TCG Invest Error:", msg, "Line:", line);
-  return false;
-};
 
 console.log("TCG Invest Version 2.0 - App.tsx loading...");
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';

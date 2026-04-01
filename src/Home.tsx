@@ -582,7 +582,8 @@ export const Home: React.FC = () => {
       </div>
 
       {/* Market Prices Section - Bento Grid */}
-      {cardPrices.length > 0 && (
+      {/* Always show market prices section if we have data OR if still loading */}
+      {cardPrices.length > 0 || pricesLoading ? (
         <div className="mb-10">
           <div className="flex items-center gap-2 mb-6">
             <TrendingUp className="w-6 h-6 text-amber-500" />
@@ -590,8 +591,11 @@ export const Home: React.FC = () => {
           </div>
           
           {pricesLoading ? (
-            <div className="flex justify-center py-8">
-              <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
+            <div className="flex justify-center items-center py-12">
+              <div className="text-center">
+                <Loader2 className="w-8 h-8 animate-spin text-blue-500 mx-auto mb-2" />
+                <p className="text-gray-500 text-sm">Loading TCG Invest...</p>
+              </div>
             </div>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
