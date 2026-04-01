@@ -14,10 +14,18 @@
       
       // Step 3: Catch ALL runtime errors (this runs before React's error handlers)
       window.onerror = function(msg, url, line) {
-        alert("發現報錯: " + msg + "\n行數: " + line);
+        alert("JS Error: " + msg + "\nLine: " + line);
         console.error("TCG Invest Error:", msg, "Line:", line);
         return false;
       };
+      
+      // Step 4: Catch resource 404 errors
+      window.addEventListener('error', function(e) {
+        if (e.target && (e.target.src || e.target.href)) {
+          alert("資源載入失敗 (404): " + (e.target.src || e.target.href));
+        }
+        console.error("Resource error:", e);
+      }, true);
       
       console.log("✅ Global error handler registered");
     </script>
