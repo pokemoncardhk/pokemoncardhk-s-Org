@@ -325,6 +325,8 @@ export const Home: React.FC = () => {
   const [addingToPortfolio, setAddingToPortfolio] = useState<string | null>(null);
   const [showToast, setShowToast] = useState<string | null>(null);
 
+  console.log("React Rendering Home...");
+  
   return (
     <div className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-screen">
       {/* Beta Version Banner */}
