@@ -471,9 +471,7 @@
         };
         // 使用從 config 中讀取的正確資料庫 ID
         const app = initializeApp(firebaseConfig);
-        const db = initializeFirestore(app, {
-            experimentalForceLongPolling: true
-        }, firebaseConfig.firestoreDatabaseId);
+        const db = initializeFirestore(app, {}, firebaseConfig.firestoreDatabaseId);
         const auth = getAuth(app);
 
         let currentLeaderboardData = [];

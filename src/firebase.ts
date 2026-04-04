@@ -15,9 +15,7 @@ export const auth = getAuth(app);
 
 // Initialize Firestore
 // If firestoreDatabaseId is provided, use it; otherwise default to '(default)'
-export const db = initializeFirestore(app, {
-  experimentalForceLongPolling: true
-}, firebaseConfig.firestoreDatabaseId || '(default)');
+export const db = initializeFirestore(app, {}, firebaseConfig.firestoreDatabaseId || '(default)');
 
 // Test connection to Firestore
 async function testConnection() {

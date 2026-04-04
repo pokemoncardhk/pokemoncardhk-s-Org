@@ -184,7 +184,7 @@ async function startServer() {
           totalViews: increment(1) 
         }, { merge: true }).catch(err => {
           console.error("[Analytics] Total views update failed:", err);
-          console.error("[Analytics] Error details:", JSON.stringify(err));
+          console.error("[Analytics] Error details:", err);
         });
 
         const p2 = setDoc(dayRef, { 
@@ -192,7 +192,7 @@ async function startServer() {
           date: today 
         }, { merge: true }).catch(err => {
           console.error("[Analytics] Daily views update failed:", err);
-          console.error("[Analytics] Error details:", JSON.stringify(err));
+          console.error("[Analytics] Error details:", err);
         });
 
         // We don't await them to not block the request, but we catch errors
